@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from payments.views import CreateCheckoutSessionView, ItemDetailPageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('item/<pk>', ItemDetailPageView.as_view(), name='item-page'),
+    path('buy/<pk>', CreateCheckoutSessionView.as_view(), name='buy-item')
 ]
